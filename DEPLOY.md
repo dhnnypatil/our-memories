@@ -1,38 +1,23 @@
-# How to Deploy (The Best Way)
+# How to Update Your Website
 
-The best way to host on Vercel is to connect it to your **GitHub** repository. This way, every time you update your code (like adding new photos), the site updates automatically!
+Now that your site is connected to GitHub and Vercel, updating it is super easy!
 
-## Step 1: Push to GitHub
+## Adding New Photos
+1.  **Add Photos**: Put your new photos in the `public/images/` folder.
+2.  **Update Code**: Open `src/main.js` and add them to the `memories` list.
+3.  **Publish**:
+    Run these commands in your terminal to send the changes to the live site:
+    ```bash
+    git add .
+    git commit -m "Added new photos"
+    git push
+    ```
+    
+    **That's it!** Vercel will see the new code and automatically update the website within a minute.
 
-1.  **Initialize Git** (if you haven't yet):
-    - Open terminal in project folder.
-    - Run:
-      ```bash
-      git init
-      git add .
-      git commit -m "Initial commit"
-      ```
-
-2.  **Create a Repository**:
-    - Go to [GitHub.com/new](https://github.com/new).
-    - Name it `our-memories` (or whatever you like).
-    - **Important**: Don't check "Add a README" or ".gitignore".
-
-3.  **Push Code**:
-    - Copy the commands GitHub gives you (under "…or push an existing repository from the command line"). They look like this:
-      ```bash
-      git remote add origin https://github.com/YOUR_USERNAME/our-memories.git
-      git branch -M main
-      git push -u origin main
-      ```
-
-## Step 2: Connect Vercel
-
-1.  Go to [Vercel.com](https://vercel.com) and log in.
-2.  Click **"Add New..."** -> **"Project"**.
-3.  You should see your `our-memories` repo in the list. Click **"Import"**.
-4.  Click **"Deploy"**.
-5.  Done! Vercel will give you a link (e.g., `https://our-memories.vercel.app`).
+## Troubleshooting
+- If images don't load, make sure the filename in `main.js` matches exactly (case-sensitive!).
+- If the deployment fails, check your Vercel dashboard for errors.
 
 
 5.  **Done!**

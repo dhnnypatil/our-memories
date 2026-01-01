@@ -64,13 +64,13 @@ function initDailyNote() {
 // --- Gallery System ---
 
 const memories = [
-  { url: '/images/us1.jpeg', caption: "Where it all began" },
+  // { url: '/images/us7.jpeg', caption: "Where it all began" },
   { url: '/images/us2.jpeg', caption: "Just us" },
   { url: '/images/us3.jpeg', caption: "Making memories" },
-  { url: '/images/us4.jpeg', caption: "My favorite smile" },
+  { url: '/images/us6.jpeg', caption: "My favorite smile" },
   { url: '/images/us5.jpeg', caption: "Adventures with you" },
-  { url: '/images/us6.jpeg', caption: "Unforgettable moments" },
-  { url: '/images/us7.jpeg', caption: "Forever & Always" }
+  { url: '/images/us4.jpeg', caption: "Unforgettable moments" },
+  { url: '/images/us1.jpeg', caption: "Forever & Always" }
 ];
 
 /**

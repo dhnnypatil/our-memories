@@ -68,7 +68,7 @@ const memories = [
   { url: '/images/us2.jpeg', caption: "Just us" },
   { url: '/images/us4.jpeg', caption: "Making memories" },
   { url: '/images/us1.jpeg', caption: "My favorite smile" },
-  { url: '/images/us6.jpeg', caption: "Adventures with you" },
+  { url: '/images/us6.jpeg', caption: "Our First Date" },
   { url: '/images/us3.jpeg', caption: "Unforgettable moments" },
   { url: '/images/us7.jpeg', caption: "Forever & Always" }
 ];

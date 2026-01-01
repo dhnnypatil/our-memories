@@ -1,0 +1,264 @@
+:root {
+  --bg-color: #FFF0F5; /* Lavender Blush */
+  --primary-pink: #FFB7B2;
+  --secondary-pink: #FF9EAA;
+  --accent-pink: #FF69B4;
+  --text-main: #4A4A4A;
+  --text-light: #7A7A7A;
+  --white: #FFFFFF;
+  --font-header: 'Pacifico', cursive;
+  --font-body: 'Quicksand', sans-serif;
+  --card-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+#app {
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100px); opacity: 0; }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pop {
+  animation: pop 0.8s ease-out;
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.5s;
+}
+
+.text-pink {
+  color: var(--accent-pink);
+}
+
+/* Header */
+header {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  font-family: var(--font-header);
+  font-size: 2.5rem;
+  color: var(--secondary-pink);
+  text-shadow: 2px 2px 0px white;
+}
+
+/* Main Layout */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+section h3 {
+  font-family: var(--font-header);
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-pink);
+}
+
+/* Hero */
+.hero-content h2 {
+  font-size: 2rem;
+  color: var(--text-main);
+}
+.hero-content p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-top: 1rem;
+}
+
+/* Daily Note Card */
+.note-card-container {
+  perspective: 1000px;
+  width: 100%;
+  max-width: 400px;
+  height: 250px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.note-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--card-shadow);
+  border-radius: 15px;
+}
+
+.note-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.note-front, .note-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  background: var(--white);
+  border: 2px solid var(--primary-pink);
+}
+
+.note-front {
+  background: repeating-linear-gradient(
+    45deg,
+    #fff,
+    #fff 10px,
+    #FFF0F5 10px,
+    #FFF0F5 20px
+  );
+}
+
+.note-front .stamp {
+  font-size: 3rem;
+  color: var(--accent-pink);
+  margin-top: 1rem;
+  border: 4px solid var(--accent-pink);
+  padding: 10px;
+  border-radius: 50%;
+  mask-image: url('data:image/svg+xml;utf8,<svg ...>'); /* Optional grunge effect */
+  transform: rotate(-15deg);
+}
+
+.note-back {
+  transform: rotateY(180deg);
+  background-color: #fff;
+  background-image: linear-gradient(#f1f1f1 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.note-back p {
+  font-family: var(--font-header); /* Handwritten feel */
+  font-size: 1.5rem;
+  color: var(--text-main);
+}
+
+.note-time {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.small-text {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  opacity: 0.7;
+}
+
+/* Gallery */
+.polaroid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.polaroid {
+  background: white;
+  padding: 1rem;
+  padding-bottom: 3rem;
+  box-shadow: var(--card-shadow);
+  transform: rotate(-2deg);
+  transition: all 0.3s ease;
+  width: 250px; /* Reduced from 280 to fit mobile better */
+  text-align: center;
+  position: relative;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.05);
+  z-index: 10;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.polaroid:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.polaroid:nth-child(3n) {
+  transform: rotate(-1deg);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 0.5rem;
+  aspect-ratio: 1/1; /* Square photos */
+  object-fit: cover;
+}
+
+.polaroid-caption {
+  font-family: var(--font-header);
+  color: var(--text-main);
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  header h1 { font-size: 2rem; }
+  .note-card-container { height: 300px; } /* taller for mobile text */
+}
